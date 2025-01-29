@@ -106,13 +106,17 @@ function displayMovies(movies) {
                                                                        const detailsList = document.createElement("ul");
                                                                
                                                                        const details = [
-                                                                           `Title: ${movie.Title}`,
-                                                                           `Year: ${movie.Year}`,
-                                                                           `Genre: ${movie.Genre}`,
-                                                                           `Director: ${movie.Director}`,
-                                                                           `Actors: ${movie.Actors}`,
-                                                                           `Plot: ${movie.Plot}`,
-                                                                           `IMDB Rating: ${movie.imdbRating}`
+                                                                           `Title:     ${movie.Title}`,
+                                                                           `Year:      ${movie.Year}`,
+                                                                           `Genre:     ${movie.Genre}`,
+                                                                           `Director:  ${movie.Director}`,
+                                                                           `Actors:    ${movie.Actors}`,
+                                                                           `Plot:      ${movie.Plot}`,
+                                                                           `IMDB Rating: ${movie.imdbRating}`,
+                                                                           `Rated:      ${movie.Rated}`,
+                                                                           `imdbVotes:  ${movie.imdbVotes}`,
+                                                                           `Country:    ${movie.Country}`,
+                                                                           `Language:   ${movie.Language}`
                                                                        ];
                                                                
                                                                        details.forEach(detail => {
