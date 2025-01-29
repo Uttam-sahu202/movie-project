@@ -1,0 +1,5 @@
+get the knowldge of api s and t  and i 
+
+s = search by title 
+t = get full detail exact by title 
+i = get full detail exact by IMDB id       in given URL 

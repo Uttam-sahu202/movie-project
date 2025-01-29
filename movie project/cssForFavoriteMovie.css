@@ -1,0 +1,36 @@
+#favoriteContent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px; /* Adds spacing between cards */
+}
+
+.fav-movieCard{
+    padding: 5px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    text-align: center;
+    width: 450px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fav-movieCard img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.fav-movieCard h3 {
+    margin: 10px 0; /* Adjusts spacing above and below h3 tags */
+}
+
+.Remove-btn {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
