@@ -23,6 +23,7 @@
     color: white;
     padding: 20px 10px;
     text-align: center;
+
   }
   
   .search-header h1 {
@@ -73,7 +74,6 @@
     background-color: #183f2f;
     display: flex;
     justify-content: space-around;
-
 }
 button{
     background-color: #0056b3;
@@ -82,6 +82,7 @@ button{
     font-size: 16px;
     border-radius: 20px;
     padding: 10px 15px;
+    cursor: pointer;
 }
 
 

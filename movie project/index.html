@@ -9,7 +9,20 @@
   <link rel="stylesheet" href="popupcss.css"> 
 </head>
 <body>
-  <!-- Header with Search Bar -->
+    <!-- search history modal popup  -->
+    <button class="btn2" id="history">Search History</button>
+    <div class="searchHistoryModal" id="historyModal">
+        <div class="detail-content" id="history-content">No History found!</div>
+        <div><button class="btn2" id="history-close-detail" id="history-close-detail">Close</button></div>
+  </div>
+
+  <!-- theme select button creating  -->
+  <select id="themeToggle">
+    <option value="light">Light</option>
+    <option value="dark">Dark</option>
+  </select>
+   
+  <!-- creating detail popup modal  -->
    <div class="popup-container decor" id="popup">
          <div class="detail-content" id="detail-content">please wait..!</div>
          <div><button id="close-detail" id="close-detail">Close</button></div>
@@ -32,4 +45,5 @@
     </div>
 </body>
 <script src="script.js"></script>
+<script src="themeToggle.js"></script>
 </html>

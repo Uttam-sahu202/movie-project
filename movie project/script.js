@@ -1,16 +1,27 @@
+//export{history};
+
 var allMovies = [];
 var permanentMovieList = {};  // mapping of movie name with the imdb id 
 var favoriteList = JSON.parse(localStorage.getItem('favoriteMovies')) || []; // Load from localStorage 
-
+const history = JSON.parse(localStorage.getItem('history')) || [];
 
 //  taking inpute from user and send to search 
 document.getElementById('searchButton').addEventListener('click', () => {     
     const searchInput = document.getElementById('searchInput').value.trim();
+    allMovies = [];
     if (searchInput) {
         fetchAllMovies(searchInput);
     } else {
         alert('Please enter a movie name to search!');  // in case inpute section is vacant
     }
+
+    if (history.indexOf(searchInput) === -1 && searchInput) {  
+        history.push(searchInput); 
+        localStorage.setItem('history', JSON.stringify(history));  
+        let temp = document.createElement("li");            // appending current searched element into history list
+        temp.textContent = searchInput;
+        document.querySelector('.history-ul').appendChild(temp);
+    }  
 });
 
 
@@ -34,11 +45,14 @@ function fetchAllMovies(searchTerm) {
                     } else {
                         displayMovies(allMovies);
                     }
-                } else {
+                } else if(page === 1){
                     alert('No movies found!');         // handling wrong movie name 
                 }
             })
-            .catch(error => console.error('Error fetching data:', error));  // handling the server error in case of any 
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                 alert('error in fetching movie'); 
+            });  // handling the server error in case of any 
     }
 
     fetchPage(page);  // fetching result from each page 
@@ -284,4 +298,38 @@ document.getElementById('favourite').addEventListener('click', () => {
     document.getElementById('favourite').style.color = "rgb(180, 182, 183)";
     document.getElementById('home').style.backgroundColor = "";
     document.getElementById('home').style.color = "";
+});
+
+
+
+
+const searchHistoryModal = document.querySelector(".searchHistoryModal");
+const searchedContent = document.getElementById("history-content");
+searchedContent.innerHTML = "";
+
+const detailsList = document.createElement("ul");
+detailsList.classList.add('history-ul');
+
+// Ensure `searchedDetail` is an array before iterating
+if (Array.isArray(history)) {
+    history.forEach(detail => {
+        const listItem = document.createElement("li");
+        listItem.textContent = detail;
+        detailsList.appendChild(listItem);
+    });
+}
+
+searchedContent.appendChild(detailsList);
+
+// Corrected modal display property
+document.getElementById('history').addEventListener('click', () => {
+
+    searchHistoryModal.style.display = 'grid';
+    searchHistoryModal.style.zIndex = '999';
+});
+
+// Close button functionality
+document.getElementById('history-close-detail').addEventListener('click', () => {
+    searchHistoryModal.style.display = 'none';
+    searchHistoryModal.style.zIndex = '-1';
 });
