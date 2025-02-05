@@ -86,21 +86,29 @@ button{
 }
 
 
-#favourite{
+.favourite{
     margin-bottom: 5px;
 }
-#home{
+.home{
     margin-bottom: 5px;
 }
 
+.active{
+  background: rgba(105, 178, 241, 0.1);
+  color : rgb(180, 182, 183);
+}
 /* starting the main content css form here  */
 
 
-#homeContent {
+.content-section{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 10px; /* Adds spacing between cards */
+}
+
+.content-disabled{
+  display: none;
 }
 
 .movie-card {

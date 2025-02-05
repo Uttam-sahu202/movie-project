@@ -1,9 +1,3 @@
-#favoriteContent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px; /* Adds spacing between cards */
-}
 
 .fav-movieCard{
     padding: 5px;

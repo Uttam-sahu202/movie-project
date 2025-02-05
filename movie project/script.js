@@ -51,7 +51,7 @@ function fetchAllMovies(searchTerm) {
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
-                 alert('error in fetching movie'); 
+                 alert('error in fetching movie try again!'); 
             });  // handling the server error in case of any 
     }
 
@@ -280,27 +280,21 @@ loadFavoriteMovies(); // Call function on page load
 
 
 
+// making combined listner of home and favourite both the content 
 
-// Section Switching and button decorating 
-document.getElementById('home').addEventListener('click', () => {
-    document.getElementById('homeContent').style.display = 'flex';
-    document.getElementById('favoriteContent').style.display = 'none';
-    document.getElementById('home').style.backgroundColor = "rgba(105, 178, 241, 0.1)";
-    document.getElementById('home').style.color = "rgb(180, 182, 183)";
-    document.getElementById('favourite').style.backgroundColor = "";
-    document.getElementById('favourite').style.color = "";
+document.getElementById('sec-switching').addEventListener('click', (event) => {
+    if (event.target.id === 'home') {  
+        document.getElementById('homeContent').classList.remove('content-disabled');
+        document.getElementById('favoriteContent').classList.add('content-disabled');
+        document.getElementById('favourite').classList.remove('active');
+        document.getElementById('home').classList.add('active');
+    } else if (event.target.id === 'favourite') {
+        document.getElementById('favoriteContent').classList.remove('content-disabled');
+        document.getElementById('homeContent').classList.add('content-disabled');
+        document.getElementById('home').classList.remove('active');
+        document.getElementById('favourite').classList.add('active');
+    }
 });
-
-document.getElementById('favourite').addEventListener('click', () => {
-    document.getElementById('homeContent').style.display = 'none';
-    document.getElementById('favoriteContent').style.display = 'flex';
-    document.getElementById('favourite').style.backgroundColor = "rgba(105, 178, 241, 0.1)";
-    document.getElementById('favourite').style.color = "rgb(180, 182, 183)";
-    document.getElementById('home').style.backgroundColor = "";
-    document.getElementById('home').style.color = "";
-});
-
-
 
 
 const searchHistoryModal = document.querySelector(".searchHistoryModal");
