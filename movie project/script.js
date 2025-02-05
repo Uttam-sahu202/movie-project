@@ -5,6 +5,9 @@ var permanentMovieList = {};  // mapping of movie name with the imdb id
 var favoriteList = JSON.parse(localStorage.getItem('favoriteMovies')) || []; // Load from localStorage 
 const history = JSON.parse(localStorage.getItem('history')) || [];
 
+
+export default history;
+
 //  taking inpute from user and send to search 
 document.getElementById('searchButton').addEventListener('click', () => {     
     const searchInput = document.getElementById('searchInput').value.trim();
@@ -297,33 +300,34 @@ document.getElementById('sec-switching').addEventListener('click', (event) => {
 });
 
 
-const searchHistoryModal = document.querySelector(".searchHistoryModal");
-const searchedContent = document.getElementById("history-content");
-searchedContent.innerHTML = "";
+// const searchHistoryModal = document.querySelector(".searchHistoryModal");
+// const searchedContent = document.getElementById("history-content");
+// searchedContent.innerHTML = "";
 
-const detailsList = document.createElement("ul");
-detailsList.classList.add('history-ul');
+// const detailsList = document.createElement("ul");
+// detailsList.classList.add('history-ul');
 
-// Ensure `searchedDetail` is an array before iterating
-if (Array.isArray(history)) {
-    history.forEach(detail => {
-        const listItem = document.createElement("li");
-        listItem.textContent = detail;
-        detailsList.appendChild(listItem);
-    });
-}
+// // Ensure `searchedDetail` is an array before iterating
+// if (Array.isArray(history)) {
+//     history.forEach(detail => {
+//         const listItem = document.createElement("li");
+//         listItem.textContent = detail;
+//         detailsList.appendChild(listItem);
+//     });
+// }
 
-searchedContent.appendChild(detailsList);
+// searchedContent.appendChild(detailsList);
 
-// Corrected modal display property
-document.getElementById('history').addEventListener('click', () => {
+// // Corrected modal display property
+// document.getElementById('history').addEventListener('click', () => {
 
-    searchHistoryModal.style.display = 'grid';
-    searchHistoryModal.style.zIndex = '999';
-});
+//     searchHistoryModal.style.display = 'grid';
+//     searchHistoryModal.style.zIndex = '999';
+// });
 
-// Close button functionality
-document.getElementById('history-close-detail').addEventListener('click', () => {
-    searchHistoryModal.style.display = 'none';
-    searchHistoryModal.style.zIndex = '-1';
-});
+// // Close button functionality
+// document.getElementById('history-close-detail').addEventListener('click', () => {
+//     searchHistoryModal.style.display = 'none';
+//     searchHistoryModal.style.zIndex = '-1';
+// });
+
